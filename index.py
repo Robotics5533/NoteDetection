@@ -4,8 +4,8 @@ import os
 
 def detect_orange_objects(image, image_id):
     hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
-    lower_orange = np.array([0, 80, 50])  # Adjusted lower bound for darker orange color
-    upper_orange = np.array([20, 255, 255])  # Adjusted upper bound for darker orange color
+    lower_orange = np.array([0, 80, 50])  # Lower bound of orange
+    upper_orange = np.array([20, 255, 255])  # Upper bound of orange
     mask = cv2.inRange(hsv, lower_orange, upper_orange)
     contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     orange_image = image.copy()
